@@ -28,9 +28,9 @@ def get_post_javascript_data():
                 file = request.files['voice']
                 name=file.filename
                 if(os.path.isfile(secure_filename(name))):
-                        file.save("voice/"+secure_filename(name+"temp.wav"))
-                        Input_base_autor = "voice/"+secure_filename(name)
-                        Input_current_autor = "voice/"+secure_filename(name)+"temp.wav"
+                        file.save(secure_filename(name+"temp.wav"))
+                        Input_base_autor = secure_filename(name)
+                        Input_current_autor = secure_filename(name)+"temp.wav"
                         otvet = authorization(Input_base_autor, Input_current_autor)
                         if otvet==1:
                                 print("YES")
